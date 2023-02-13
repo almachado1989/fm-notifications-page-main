@@ -1,0 +1,247 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global variables */
+
+:root {
+  /* Primary */
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+
+  /* Neutral */
+  --neutral-100: hsl(0, 0%, 100%);
+  --neutral-200: hsl(210, 60%, 98%);
+  --neutral-300: hsl(211, 68%, 94%);
+  --neutral-400: hsl(205, 33%, 90%);
+  --neutral-600: hsl(219, 14%, 63%);
+  --neutral-700: hsl(219, 12%, 42%);
+  --neutral-900: hsl(224, 21%, 14%);
+
+  /* Fonts */
+  --ff-main: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Typography */
+body {
+  font-family: var(--ff-main);
+  color: var(--neutral-700);
+  font-size: 14px;
+}
+
+.name,
+.group-name,
+.post-name {
+  font-weight: 800;
+}
+
+.name,
+.post-name {
+  font-size: 1em;
+}
+
+.group-name,
+.post-name,
+.dot {
+  margin-left: 0.25rem;
+}
+
+.name {
+  margin-right: 0.25rem;
+  color: var(--neutral-900);
+}
+
+.name:hover,
+.name:focus,
+.mark-read:hover,
+.mark-read:focus,
+.post-name:hover,
+.post-name:focus,
+.group-name:hover,
+.group-name:focus {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.post-name,
+.group-name {
+  color: var(--neutral-700);
+}
+
+/* Layout */
+.container {
+  padding: 1rem;
+  background-color: white;
+}
+
+.notifications-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.notifications {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--neutral-900);
+}
+
+.notification-count {
+  display: inline-block;
+  text-align: center;
+  background-color: var(--blue);
+  color: var(--neutral-100);
+  border-radius: 8px;
+  width: 2.125rem;
+  margin-left: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.mark-read {
+  border: 0;
+  background-color: transparent;
+  color: var(--neutral-600);
+}
+
+.posts {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.post-wrapper {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  gap: 0.75rem;
+  border-radius: 8px;
+}
+
+.pfp,
+.post-thumbnail {
+  width: 3rem;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+
+.has-thumb {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.post-text {
+  position: relative;
+}
+
+.post-thumbnail {
+  /* display: inline-block; */
+  align-self: flex-start;
+}
+
+.unread {
+  background-color: var(--neutral-200);
+}
+
+.dot {
+  color: var(--red);
+  font-size: 1.5rem;
+  position: relative;
+  top: 0.125rem;
+  display: none;
+  line-height: 0;
+}
+
+.unread .dot {
+  display: inline-block;
+}
+
+.post-age {
+  color: var(--neutral-600);
+}
+
+.comment {
+  padding: 1rem;
+  border: 1px solid var(--neutral-600);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.comment:hover,
+.comment:focus {
+  background-color: var(--neutral-300);
+  cursor: pointer;
+}
+
+@media (min-width: 620px) {
+  body {
+    background-color: var(--neutral-200);
+    padding: 5rem;
+    font-size: 16px;
+  }
+  .container {
+    margin: auto;
+    max-width: 725px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 16px var(--neutral-300);
+  }
+}
